@@ -27,7 +27,7 @@
       class="border-none focus:ring-0 outline-none text-gray-700 px-2"
       [(ngModel)]="search.address"
       [ngModelOptions]="{ standalone: true }">
-      <option value="">Tout le Maroc</option>
+      <option value="">Tout le Maroc :</option>
 
       @for (location of locations; track $index) {
         <option  [value]="location">{{ location }}</option>
