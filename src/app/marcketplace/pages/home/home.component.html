@@ -1,0 +1,21 @@
+<app-search-bar [search]="research" (searchEvent)="search($event)"></app-search-bar>
+<app-slider></app-slider>
+
+<!-- Suggested Products Section -->
+<section class="mt-6">
+  <h2 class="text-xl font-bold text-gray-700 px-6">Suggested Products</h2>
+  <app-suggested-product></app-suggested-product>
+</section>
+
+<!-- Product List -->
+<section class="mt-6">
+  <h2 class="text-xl font-bold text-gray-700 px-6">All Products</h2>
+  <div class="bg-white">
+     <app-product-list [productLight]="productLight" (reloadTable)="reloadTableData()"></app-product-list>
+  <app-pagination-any-component
+    [pagination]="pagination"
+    (navigateEvent)="navigate($event)">
+  </app-pagination-any-component>
+  </div>
+ 
+</section>

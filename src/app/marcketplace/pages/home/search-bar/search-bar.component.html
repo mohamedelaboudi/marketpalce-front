@@ -1,0 +1,45 @@
+<!-- Search Bar -->
+<div class="bg-grey-600 py-4">
+  <div class="max-w-7xl mx-auto px-6 flex items-center gap-4 bg-white p-2 shadow rounded-lg">
+    <!-- Input Field -->
+    <input
+      type="text"
+      placeholder="Que recherchez-vous ?"
+      class="flex-1 border-none focus:ring-0 outline-none text-gray-700 px-2"
+      [(ngModel)]="search.productName"
+      [ngModelOptions]="{ standalone: true }" />
+
+    <!-- Categories Dropdown -->
+    <select
+    
+      class="border-none focus:ring-0 outline-none text-gray-700 px-2"
+      [(ngModel)]="search.category"
+      [ngModelOptions]="{ standalone: true }">
+      <option value="">Toutes les catégories</option>
+      @for (category of categories; track $index) {
+        <option [value]="category">{{ category }}</option>
+
+      }
+    </select>
+
+    <!-- Location Selector -->
+    <select
+      class="border-none focus:ring-0 outline-none text-gray-700 px-2"
+      [(ngModel)]="search.address"
+      [ngModelOptions]="{ standalone: true }">
+      <option value="">Tout le Maroc</option>
+
+      @for (location of locations; track $index) {
+        <option  [value]="location">{{ location }}</option>
+      }
+      
+    </select>
+
+    <!-- Search Button -->
+    <button
+      class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg"
+      (click)="onSearch()">
+      Rechercher
+    </button>
+  </div>
+</div>
