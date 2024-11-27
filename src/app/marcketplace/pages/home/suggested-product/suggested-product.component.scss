@@ -1,0 +1,28 @@
+/* Hide the scrollbar for overflow */
+.scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+  }
+  
+  /* Enhance the appearance of the cards */
+  .flex {
+    gap: 1rem;
+  }
+  
+  img {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  img:hover {
+    transform: scale(1.05);
+  }
+  
+  .flex-none {
+    width: 15rem;
+    flex-shrink: 0;
+  }
+  

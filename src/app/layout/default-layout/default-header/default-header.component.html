@@ -1,0 +1,41 @@
+<header class="bg-blue-600 text-white sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Left Section: Logo -->
+    <div class="text-2xl font-bold">
+      <a href="/" class="hover:text-gray-200">Marketplace</a>
+    </div>
+
+    <!-- Middle Section: Navigation Menu -->
+    <nav class="flex-1 text-center">
+      <ul class="inline-flex space-x-6">
+        <li><a href="/" class="hover:text-gray-200">Home</a></li>
+        <li><a class="hover:text-gray-200">Products</a></li>
+       
+        <li><a class="hover:text-gray-200">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- Right Section: Buttons -->
+    <div class="flex items-center space-x-4">
+      <button
+        class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100 shadow"
+      >
+        Se connecter
+      </button>
+      <button
+        routerLink="/publish"
+        class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 shadow"
+      >
+        Publier une annonce
+      </button>
+      
+      <!-- New Détails Button -->
+      <button
+        routerLink="/details"
+        class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 shadow"
+      >
+        Détails
+      </button>
+    </div>
+  </div>
+</header>

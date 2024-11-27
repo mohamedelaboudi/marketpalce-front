@@ -1,0 +1,91 @@
+<div class="details-container p-4">
+  <div class="max-w-6xl mx-auto">
+    <!-- Navigation Tabs -->
+    <div class="flex space-x-4 mb-6">
+      <button 
+        class="px-4 py-2 rounded-lg transition-colors"
+        [class.bg-blue-500]="activeTab === 'announcements'"
+        [class.text-white]="activeTab === 'announcements'"
+        [class.bg-gray-200]="activeTab !== 'announcements'"
+        (click)="setActiveTab('announcements')">
+        Mes Annonces
+      </button>
+      <button 
+        class="px-4 py-2 rounded-lg transition-colors"
+        [class.bg-blue-500]="activeTab === 'favorites'"
+        [class.text-white]="activeTab === 'favorites'"
+        [class.bg-gray-200]="activeTab !== 'favorites'"
+        (click)="setActiveTab('favorites')">
+        Mes Favoris
+      </button>
+      <button 
+        class="px-4 py-2 rounded-lg transition-colors"
+        [class.bg-blue-500]="activeTab === 'orders'"
+        [class.text-white]="activeTab === 'orders'"
+        [class.bg-gray-200]="activeTab !== 'orders'"
+        (click)="setActiveTab('orders')">
+        Mes Commandes
+      </button>
+    </div>
+
+    <!-- Announcements Section -->
+    @if (activeTab === 'announcements') {
+      <section class="bg-white rounded-lg shadow-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-4">Mes Annonces</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Sample Announcement Cards -->
+          <div class="border rounded-lg p-4">
+            <img src="placeholder.jpg" alt="Product" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="font-semibold">Announcement 1</h3>
+            <p class="text-gray-600">1000 DH</p>
+          </div>
+          <div class="border rounded-lg p-4">
+            <img src="placeholder.jpg" alt="Product" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="font-semibold">Announcement 2</h3>
+            <p class="text-gray-600">2000 DH</p>
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- Favorites Section -->
+    @if (activeTab === 'favorites') {
+      <section class="bg-white rounded-lg shadow-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-4">Mes Favoris</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Sample Favorite Cards -->
+          <div class="border rounded-lg p-4">
+            <img src="placeholder.jpg" alt="Product" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="font-semibold">Favorite Item 1</h3>
+            <p class="text-gray-600">1500 DH</p>
+          </div>
+          <div class="border rounded-lg p-4">
+            <img src="placeholder.jpg" alt="Product" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="font-semibold">Favorite Item 2</h3>
+            <p class="text-gray-600">2500 DH</p>
+          </div>
+        </div>
+      </section>
+    }
+
+    <!-- Orders Section -->
+    @if (activeTab === 'orders') {
+      <section class="bg-white rounded-lg shadow-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-4">Mes Commandes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Sample Order Cards -->
+          <div class="border rounded-lg p-4">
+            <img src="placeholder.jpg" alt="Product" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="font-semibold">Order Title 1</h3>
+            <p class="text-gray-600">1000 DH</p>
+          </div>
+          <div class="border rounded-lg p-4">
+            <img src="placeholder.jpg" alt="Product" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="font-semibold">Order Title 2</h3>
+            <p class="text-gray-600">2000 DH</p>
+          </div>
+        </div>
+      </section>
+    }
+  </div>
+</div> 

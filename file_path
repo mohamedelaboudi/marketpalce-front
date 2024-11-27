@@ -1,0 +1,28 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { PublishAnnouncementComponent } from './marcketplace/pages/publish-announcement/publish-announcement.component';
+import { DetailsComponent } from './marcketplace/pages/details/details.component';
+
+import { HttpClientModule } from '@angular/common/http';
+// Import other components as needed
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    PublishAnnouncementComponent,
+    DetailsComponent,
+   
+    // ... other components ...
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    // ... existing modules ...
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { } 
