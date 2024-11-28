@@ -1,11 +1,8 @@
 import { Routes } from '@angular/router';
 import { DefaultLayoutComponent } from './layout/default-layout/default-layout.component';
 import { AvenderComponent } from './marcketplace/pages/avender/avender.component';
-<<<<<<< HEAD
-=======
 import { PublishAnnouncementComponent } from './marcketplace/pages/publish-announcement/publish-announcement.component';
 import { DetailsComponent } from './marcketplace/pages/details/details.component';
->>>>>>> Ali-Branch
 
 export const routes: Routes = [
   {
@@ -32,9 +29,6 @@ export const routes: Routes = [
           title: 'Avendr',
         },
       },
-<<<<<<< HEAD
-      
-=======
       {
         path: 'publish',
         component: PublishAnnouncementComponent,
@@ -46,7 +40,6 @@ export const routes: Routes = [
         path: 'details',
         component: DetailsComponent,
       }
->>>>>>> Ali-Branch
     ],
   },
 ];
