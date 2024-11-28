@@ -1,1 +1,106 @@
-<p>product-info works!</p>
+<div class="bg-gray-50">
+    <!-- Breadcrumb -->
+    <div class="py-4 border-b border-gray-200">
+      <nav aria-label="Breadcrumb">
+        <ol class="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <li>
+            <a href="#" class="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900">
+              Men
+              <svg class="h-5 w-4 ml-2 text-gray-400" fill="currentColor" viewBox="0 0 16 20">
+                <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900">
+              Clothing
+              <svg class="h-5 w-4 ml-2 text-gray-400" fill="currentColor" viewBox="0 0 16 20">
+                <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
+              </svg>
+            </a>
+          </li>
+          <li class="text-sm font-medium text-gray-500">Basic Tee 6-Pack</li>
+        </ol>
+      </nav>
+    </div>
+  
+    <!-- Product Gallery -->
+    <div class="mx-auto mt-6 max-w-2xl lg:max-w-7xl sm:px-6 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+      <div class="hidden lg:block group relative">
+        <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-02-secondary-product-shot.jpg" alt="Secondary view" class="rounded-lg object-cover">
+        <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-20 transition"></div>
+      </div>
+      <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+        <div class="group relative">
+          <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg" alt="Tertiary view" class="rounded-lg object-cover">
+          <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-20 transition"></div>
+        </div>
+        <div class="group relative">
+          <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg" alt="Tertiary view 2" class="rounded-lg object-cover">
+          <div class="absolute inset-0 bg-gray-900 opacity-0 group-hover:opacity-20 transition"></div>
+        </div>
+      </div>
+      <img src="https://tailwindui.com/plus/img/ecommerce-images/product-page-02-featured-product-shot.jpg" alt="Featured view" class="rounded-lg object-cover lg:aspect-[3/4]">
+    </div>
+  
+    <!-- Product Information -->
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-10">
+      <!-- Title -->
+      <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+        <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">Basic Tee 6-Pack</h1>
+      </div>
+  
+      <!-- Price and Reviews -->
+      <div class="mt-4 lg:row-span-3 lg:mt-0">
+        <p class="text-3xl font-semibold text-gray-900">$192</p>
+  
+        <!-- Reviews -->
+        <div class="mt-6">
+          <div class="flex items-center">
+            <div class="flex text-yellow-400">
+              <!-- Star icons -->
+              <svg class="w-5 h-5" fill="currentColor"><use href="#star-full" /></svg>
+              <svg class="w-5 h-5" fill="currentColor"><use href="#star-full" /></svg>
+              <svg class="w-5 h-5" fill="currentColor"><use href="#star-full" /></svg>
+              <svg class="w-5 h-5" fill="currentColor"><use href="#star-full" /></svg>
+              <svg class="w-5 h-5 text-gray-200" fill="currentColor"><use href="#star-empty" /></svg>
+            </div>
+            <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+              117 reviews
+            </a>
+          </div>
+        </div>
+  
+        <!-- Options -->
+        <form class="mt-10 space-y-10">
+          <!-- Colors -->
+          <fieldset>
+            <legend class="text-sm font-medium text-gray-900">Color</legend>
+            <div class="mt-4 flex space-x-3">
+              <label class="relative -m-0.5 flex cursor-pointer items-center justify-center group">
+                <input type="radio" name="color" class="sr-only">
+                <span class="h-8 w-8 rounded-full border border-gray-200 bg-white group-hover:ring-2 group-hover:ring-indigo-500"></span>
+              </label>
+              <!-- Repeat for other colors -->
+            </div>
+          </fieldset>
+  
+          <!-- Sizes -->
+          <fieldset>
+            <legend class="flex justify-between text-sm font-medium text-gray-900">
+              Size
+              <a href="#" class="text-indigo-600 hover:text-indigo-500">Size guide</a>
+            </legend>
+            <div class="mt-4 grid grid-cols-4 gap-4 sm:grid-cols-8">
+              <label class="group flex cursor-pointer items-center justify-center rounded-md border px-4 py-3 text-sm font-medium uppercase hover:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <input type="radio" name="size" class="sr-only">
+                <span>XXS</span>
+              </label>
+              <!-- Repeat for other sizes -->
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  
