@@ -1,0 +1,190 @@
+<div class="publish-container">
+    <div class="max-w-3xl mx-auto p-4">
+      <div class="form-card">
+        <div class="step-header">
+          <h1>Publier une annonce</h1>
+          <p>Partagez les détails de votre produit en {{3 - currentStep}} étapes</p>
+        </div>
+  
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+          <div class="steps-container">
+            <div class="step" [class.active]="currentStep >= 1" [class.completed]="currentStep > 1">
+              <div class="step-circle">1</div>
+              <span class="step-text">Informations de base</span>
+            </div>
+            <div class="step-line" [class.active]="currentStep > 1"></div>
+            
+            <div class="step" [class.active]="currentStep >= 2" [class.completed]="currentStep > 2">
+              <div class="step-circle">2</div>
+              <span class="step-text">Détails du produit</span>
+            </div>
+            <div class="step-line" [class.active]="currentStep > 2"></div>
+            
+            <div class="step" [class.active]="currentStep >= 3">
+              <div class="step-circle">3</div>
+              <span class="step-text">Contact</span>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Step 1: Basic Information -->
+        @if (currentStep === 1) {
+          <div class="form-section animate-slide-in">
+            <form [formGroup]="basicInfoForm" class="space-y-6">
+              <div class="form-group">
+                <label>Titre de l'annonce</label>
+                <input 
+                  type="text" 
+                  formControlName="title" 
+                  placeholder="Ex: iPhone 13 Pro Max - 256GB"
+                  class="form-input">
+                @if (basicInfoForm.get('title')?.touched && basicInfoForm.get('title')?.invalid) {
+                  <span class="error-message">Le titre doit contenir au moins 5 caractères</span>
+                }
+              </div>
+  
+              <div class="form-group">
+                <label>Catégorie</label>
+                <select formControlName="category" class="form-select">
+                  <option value="">Sélectionnez une catégorie</option>
+                  @for (category of categories; track category) {
+                    <option [value]="category">{{category}}</option>
+                  }
+                </select>
+              </div>
+  
+              <div class="form-group">
+                <label>État du produit</label>
+                <select formControlName="condition" class="form-select">
+                  <option value="new">Neuf</option>
+                  <option value="used">Utilisé</option>
+                  <option value="refurbished">Reconditionné</option>
+                </select>
+              </div>
+            </form>
+          </div>
+        }
+  
+        <!-- Step 2: Product Details -->
+        @if (currentStep === 2) {
+          <div class="form-section animate-slide-in">
+            <form [formGroup]="detailsForm" class="space-y-6">
+              <div class="form-group">
+                <label>Description</label>
+                <textarea 
+                  formControlName="description" 
+                  rows="4" 
+                  placeholder="Décrivez votre produit en détail..."
+                  class="form-textarea"></textarea>
+                @if (detailsForm.get('description')?.touched && detailsForm.get('description')?.invalid) {
+                  <span class="error-message">La description doit contenir au moins 20 caractères</span>
+                }
+              </div>
+  
+              <div class="form-group">
+                <label>Prix (DH)</label>
+                <input 
+                  type="number" 
+                  formControlName="price"
+                  placeholder="Ex: 1500"
+                  class="form-input">
+              </div>
+  
+              <div class="image-upload-section" (click)="fileInput.click()">
+                <input 
+                  #fileInput
+                  type="file" 
+                  multiple 
+                  hidden
+                  accept="image/*"
+                  (change)="onFileSelected($event)">
+                <div class="upload-icon">�</div>
+                <p class="upload-text">Cliquez ou glissez vos images ici</p>
+                <p class="upload-hint">Maximum 5 images</p>
+              </div>
+  
+              @if (selectedFiles.length > 0) {
+                <div class="selected-images">
+                  @for (file of selectedFiles; track file.name) {
+                    <div class="image-preview">
+                      <img [src]="file.preview" [alt]="file.name">
+                      <button class="remove-image" (click)="removeFile(file)">×</button>
+                    </div>
+                  }
+                </div>
+              }
+            </form>
+          </div>
+        }
+  
+        <!-- Step 3: Contact Information -->
+        @if (currentStep === 3) {
+          <div class="form-section animate-slide-in">
+            <form [formGroup]="contactForm" class="space-y-6">
+              <div class="form-group">
+                <label>Ville</label>
+                <select formControlName="city" class="form-select">
+                  <option value="">Sélectionnez une ville</option>
+                  @for (city of cities; track city) {
+                    <option [value]="city">{{city}}</option>
+                  }
+                </select>
+              </div>
+  
+              <div class="form-group">
+                <label>Adresse</label>
+                <input 
+                  type="text" 
+                  formControlName="address"
+                  placeholder="Ex: Quartier, Rue..."
+                  class="form-input">
+              </div>
+  
+              <div class="form-group">
+                <label>Numéro de téléphone</label>
+                <input 
+                  type="tel" 
+                  formControlName="phoneNumber"
+                  placeholder="Ex: 0600000000"
+                  class="form-input">
+                @if (contactForm.get('phoneNumber')?.touched && contactForm.get('phoneNumber')?.invalid) {
+                  <span class="error-message">Veuillez entrer un numéro de téléphone valide (10 chiffres)</span>
+                }
+              </div>
+            </form>
+          </div>
+        }
+  
+        <!-- Navigation Buttons -->
+        <div class="navigation-buttons">
+          @if (currentStep > 1) {
+            <button class="btn-previous" (click)="previousStep()">
+              <span class="icon">←</span>
+              Précédent
+            </button>
+          } @else {
+            <div></div>
+          }
+  
+          @if (currentStep < 3) {
+            <button 
+              class="btn-next" 
+              [disabled]="!canProceed()"
+              (click)="nextStep()">
+              Suivant
+              <span class="icon">→</span>
+            </button>
+          } @else {
+            <button 
+              class="btn-submit"
+              [disabled]="!canSubmit()"
+              (click)="onSubmit()">
+              Publier l'annonce
+              <span class="icon">✓</span>
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
